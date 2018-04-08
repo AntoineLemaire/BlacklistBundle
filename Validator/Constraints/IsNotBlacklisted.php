@@ -53,15 +53,15 @@ class IsNotBlacklisted extends Constraint
             throw new InvalidOptionsException(sprintf('Invalid value for option "type" in constraint %s. Known types are: "%s"', __CLASS__, implode(BlacklistType::getAll())), ['type']);
         }
 
-        if (null !== $this->email && BlacklistType::TYPE_EMAIL_DOMAIN !== $this->type) {
-            throw new ValidatorException('Option "email" must be given only with type="email_domain"', ['email']);
+        if (null !== $this->email && BlacklistType::TYPE_DOMAIN !== $this->type) {
+            throw new ValidatorException(sprintf('Option "email" must be given only with type="%s"', BlacklistType::TYPE_DOMAIN), ['email']);
         }
 
         if (null === $this->email) {
             $this->email = false;
         }
 
-        if (BlacklistType::TYPE_EMAIL_DOMAIN === $this->type && !is_bool($this->email)) {
+        if (BlacklistType::TYPE_DOMAIN === $this->type && !is_bool($this->email)) {
             throw new InvalidOptionsException('Expected boolean for option "email"', ['email']);
         }
     }
