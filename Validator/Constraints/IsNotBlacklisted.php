@@ -57,6 +57,10 @@ class IsNotBlacklisted extends Constraint
             throw new ValidatorException('Option "email" must be given only with type="email_domain"', ['email']);
         }
 
+        if (null === $this->email) {
+            $this->email = false;
+        }
+
         if (BlacklistType::TYPE_EMAIL_DOMAIN === $this->type && !is_bool($this->email)) {
             throw new InvalidOptionsException('Expected boolean for option "email"', ['email']);
         }
