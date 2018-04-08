@@ -15,7 +15,9 @@ class BlacklistEntityManager extends BaseManager
      */
     public function isBlacklisted($value, $type)
     {
-        return $this->getRepository()->getCountBlacklistQueryBuilder($value, $type)->getQuery()->getScalarResult() > 0;
+        $count = (int) $this->getRepository()->getCountBlacklistQueryBuilder($value, $type)->getQuery()->getSingleScalarResult();
+
+        return $count > 0;
     }
 
     /**
