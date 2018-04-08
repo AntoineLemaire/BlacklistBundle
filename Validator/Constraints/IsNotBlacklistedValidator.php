@@ -34,8 +34,10 @@ class IsNotBlacklistedValidator extends ConstraintValidator
             throw new UnexpectedTypeException($constraint, __NAMESPACE__.'\IsNotBlacklisted');
         }
 
-        if ($constraint->type === BlacklistType::TYPE_EMAIL_DOMAIN && $constraint->isEmail) {
-
+        if ($constraint->type === BlacklistType::TYPE_EMAIL_DOMAIN && $constraint->email) {
+            if (($email = filter_var($value, FILTER_VALIDATE_EMAIL)) !== false) {
+                $value = substr(strrchr($email, "@"), 1);
+            }
         }
 
         if ($this->blacklistManager->isBlacklisted($value, $constraint->type)) {

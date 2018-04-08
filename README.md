@@ -48,6 +48,10 @@ sonata_admin:
 Usage
 ------
 
+Available types:
+- `email`
+- `email_domain` (when 'email=true' is defined, apply the constraint only on the domain part of the value)
+- `ip`
 
 ```
 class User
