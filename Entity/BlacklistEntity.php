@@ -45,15 +45,11 @@ class BlacklistEntity
     protected $value;
 
     /**
-     * BlacklistEntity constructor.
-     *
-     * @param string $type
-     * @param string $value
+     * @return int
      */
-    public function __construct($type, $value)
+    public function getId()
     {
-        $this->setType($type);
-        $this->setValue($value);
+        return $this->id;
     }
 
     /**

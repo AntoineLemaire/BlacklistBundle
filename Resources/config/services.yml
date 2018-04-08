@@ -13,9 +13,4 @@ services:
     AntoineLemaire\BlacklistBundle\Admin\BlacklistAdmin:
         arguments: [ ~, "%antoinelemaire_blacklist.blacklist_entity.class%", "%antoinelemaire_blacklist.blacklist_entity.admin.controller%" ]
         tags:
-            -
-                name: sonata.admin
-                manager_type: orm
-                group: antoinelemaire_blacklist
-                label: posts
-                label_translator_strategy: sonata.admin.label.strategy.underscore
+            - { name: sonata.admin, manager_type: orm, group: "Blacklist", label: "Blacklist" }

@@ -2,53 +2,71 @@
 
 namespace AntoineLemaire\BlacklistBundle\Admin;
 
-
-use Sonata\AdminBundle\Admin\Admin;
-use Sonata\AdminBundle\Datagrid\ListMapper;
+use AntoineLemaire\BlacklistBundle\Model\BlacklistType;
+use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
+use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
-class BlacklistAdmin extends Admin
+/**
+ * Class BlacklistAdmin.
+ */
+class BlacklistAdmin extends AbstractAdmin
 {
+    /**
+     * {@inheritdoc}
+     */
+    protected $datagridValues = [
+        '_page'       => 1,
+        '_sort_by'    => 'createdAt',
+        '_sort_order' => 'DESC',
+    ];
 
     /**
-     * {@inheritDoc}
-     */
-    protected $datagridValues = array(
-        '_page' => 1,
-        '_sort_by' => 'createdAt',
-        '_sort_order' => 'DESC'
-    );
-    /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
             ->with('form.group_general')
-            ->add('email')
-            ->add('createdAt')
+            ->add('type', ChoiceType::class, [
+                'choices'  => BlacklistType::getAll(),
+            ])
+            ->add('value')
             ->end()
         ;
     }
+
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('email')
+            ->add('type')
+            ->add('value')
             ->add('createdAt')
-        ;
-    }
-    /**
-     * {@inheritDoc}
-     */
-    protected function configureListFields(ListMapper $listMapper)
-    {
-        $listMapper
-            ->addIdentifier('email')
+            ->add('updatedAt')
         ;
     }
 
+    //list of fields that could be used to thriller
+    protected function configureListFields(ListMapper $listMapper)
+    {
+        $listMapper
+            ->add('id')
+            ->add('type')
+            ->add('value')
+            ->add('createdAt')
+            ->add('updatedAt')
+            ->add('_action', 'actions', [
+                'actions' => [
+                    'show'   => [],
+                    'edit'   => [],
+                    'delete' => [],
+                ],
+            ]
+            );
+    }
 }

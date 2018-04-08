@@ -27,7 +27,10 @@ class BlacklistEntityManager extends BaseManager
     public function blacklist($value, $type)
     {
         if (!$this->isBlacklisted($value, $type)) {
-            $this->update(new BlacklistEntity($type, $value));
+            $blacklist = new BlacklistEntity();
+            $blacklist->setType($type);
+            $blacklist->setValue($type);
+            $this->update($blacklist);
         }
 
         return true;
