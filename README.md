@@ -1,6 +1,9 @@
 AntoineLemaireBlacklistBundle
 =================
 
+Blacklist system with integration in Symfony. Just insert blacklist value/type combinaison inside database and use Annotation to assert.
+
+![Example Database](Resources/doc/database.png)
 
 
 Installation

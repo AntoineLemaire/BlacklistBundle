@@ -1,6 +1,6 @@
 {
     "name":         "antoinelemaire/blacklist-bundle",
-    "description":  "Symfony2 bundle for blacklist emails.",
+    "description":  "Provides a Blacklist system for Symfony using Annotations with Sonata admin integration.",
     "keywords":     ["blacklist","email"],
     "homepage":     "https://github.com/AntoineLemaire/BlacklistBundle",
     "type":         "symfony-bundle",
