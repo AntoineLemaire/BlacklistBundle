@@ -1,0 +1,13 @@
+/vendor/
+/bin/
+
+###############
+# Externalize #
+###############
+.idea/*
+.php_cs.cache
+.settings
+.DS_Store
+.rules/*
+composer.phar
+composer.lock

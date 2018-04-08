@@ -1,0 +1,42 @@
+{
+    "name":         "antoinelemaire/blacklist-bundle",
+    "description":  "Symfony2 bundle for blacklist emails.",
+    "keywords":     ["blacklist","email"],
+    "homepage":     "https://github.com/AntoineLemaire/BlacklistBundle",
+    "type":         "symfony-bundle",
+    "license":      "MIT",
+    "version":      "0.1",
+    "authors": [
+        {
+            "name":   "Antoine Lemaire",
+            "email":  "lemaireantoine@hotmail.com"
+        }
+    ],
+    "require": {
+        "php": "^5.5.0 || ^7.0",
+        "symfony/framework-bundle": "^3.3 || ^4.0",
+        "symfony/debug": "^3.0 || ^4.0",
+        "doctrine/common": "^2.3",
+        "symfony/validator": "^3.3 || ^4.0",
+        "knplabs/doctrine-behaviors": "~1.4",
+        "sonata-project/admin-bundle": "^3.30.1",
+        "commerceguys/enum": "^1.0"
+    },
+    "require-dev": {
+        "doctrine/doctrine-fixtures-bundle": "^2.0",
+        "sensio/framework-extra-bundle": "^5.0",
+        "symfony/class-loader": "^3.3",
+        "symfony/yaml": "^3.3 || ^4.0",
+        "doctrine/doctrine-bundle": "^1.8",
+        "doctrine/orm": "^2.5.4",
+        "friendsofphp/php-cs-fixer": "^2.11"
+    },
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-0": { "AntoineLemaire\\BlacklistBundle": "" }
+    },
+    "target-dir": "AntoineLemaire/BlacklistBundle",
+    "config": {
+        "bin-dir": "bin"
+    }
+}

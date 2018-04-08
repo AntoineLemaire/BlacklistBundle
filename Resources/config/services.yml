@@ -1,0 +1,21 @@
+parameters:
+    antoinelemaire_blacklist.blacklist_entity.class: AntoineLemaire\BlacklistBundle\Entity\BlacklistEntity
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    AntoineLemaire\BlacklistBundle\Manager\BlacklistEntityManager:
+        arguments:
+            $class: "%antoinelemaire_blacklist.blacklist_entity.class%"
+
+    AntoineLemaire\BlacklistBundle\Admin\BlacklistAdmin:
+        arguments: [ ~, "%antoinelemaire_blacklist.blacklist_entity.class%", "%antoinelemaire_blacklist.blacklist_entity.admin.controller%" ]
+        tags:
+            -
+                name: sonata.admin
+                manager_type: orm
+                group: antoinelemaire_blacklist
+                label: posts
+                label_translator_strategy: sonata.admin.label.strategy.underscore
