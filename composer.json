@@ -5,7 +5,6 @@
     "homepage":     "https://github.com/AntoineLemaire/BlacklistBundle",
     "type":         "symfony-bundle",
     "license":      "MIT",
-    "version":      "0.1",
     "authors": [
         {
             "name":   "Antoine Lemaire",
