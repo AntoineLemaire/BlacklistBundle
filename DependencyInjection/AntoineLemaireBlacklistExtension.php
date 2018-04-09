@@ -20,7 +20,7 @@ class AntoineLemaireBlacklistExtension extends Extension
         $configuration = new Configuration();
         $config        = $this->processConfiguration($configuration, $configs);
 
-        $container->setParameter('antoinelemaire_blacklist.blacklist_entity.admin.controller', $config['blacklist_entity']['admin']['controller']);
+        $container->setParameter('antoinelemaire_blacklist.blacklist_entry.admin.controller', $config['blacklist_entry']['admin']['controller']);
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');

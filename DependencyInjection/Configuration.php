@@ -22,7 +22,7 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
-                ->arrayNode('blacklist_entity')
+                ->arrayNode('blacklist_entry')
                     ->addDefaultsIfNotSet()
                     ->children()
                         ->arrayNode('admin')

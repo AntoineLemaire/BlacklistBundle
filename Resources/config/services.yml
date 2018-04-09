@@ -1,16 +1,16 @@
 parameters:
-    antoinelemaire_blacklist.blacklist_entity.class: AntoineLemaire\BlacklistBundle\Entity\BlacklistEntity
+    antoinelemaire_blacklist.blacklist_entry.class: AntoineLemaire\BlacklistBundle\Entity\BlacklistEntry
 
 services:
     _defaults:
         autowire: true
         autoconfigure: true
 
-    AntoineLemaire\BlacklistBundle\Manager\BlacklistEntityManager:
+    AntoineLemaire\BlacklistBundle\Manager\BlacklistEntryManager:
         arguments:
-            $class: "%antoinelemaire_blacklist.blacklist_entity.class%"
+            $class: "%antoinelemaire_blacklist.blacklist_entry.class%"
 
     AntoineLemaire\BlacklistBundle\Admin\BlacklistAdmin:
-        arguments: [ ~, "%antoinelemaire_blacklist.blacklist_entity.class%", "%antoinelemaire_blacklist.blacklist_entity.admin.controller%" ]
+        arguments: [ ~, "%antoinelemaire_blacklist.blacklist_entry.class%", "%antoinelemaire_blacklist.blacklist_entry.admin.controller%" ]
         tags:
             - { name: sonata.admin, manager_type: orm, group: "Blacklist", label: "Blacklist" }

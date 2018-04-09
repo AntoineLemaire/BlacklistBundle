@@ -5,7 +5,7 @@ namespace AntoineLemaire\BlacklistBundle\Repository;
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\QueryBuilder;
 
-class BlacklistEntityRepository extends EntityRepository
+class BlacklistEntryRepository extends EntityRepository
 {
     /**
      * @param string $value
@@ -13,7 +13,7 @@ class BlacklistEntityRepository extends EntityRepository
      *
      * @return QueryBuilder
      */
-    public function getCountBlacklistQueryBuilder($value, $type)
+    public function getCountBlacklistEntryQueryBuilder($value, $type)
     {
         $qb = $this->createQueryBuilder('b');
         $qb->select('COUNT(b)')

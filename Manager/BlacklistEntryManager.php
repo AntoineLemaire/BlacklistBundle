@@ -2,10 +2,10 @@
 
 namespace AntoineLemaire\BlacklistBundle\Manager;
 
-use AntoineLemaire\BlacklistBundle\Entity\BlacklistEntity;
-use AntoineLemaire\BlacklistBundle\Repository\BlacklistEntityRepository;
+use AntoineLemaire\BlacklistBundle\Entity\BlacklistEntry;
+use AntoineLemaire\BlacklistBundle\Repository\BlacklistEntryRepository;
 
-class BlacklistEntityManager extends BaseManager
+class BlacklistEntryManager extends BaseManager
 {
     /**
      * @param string $value
@@ -15,7 +15,7 @@ class BlacklistEntityManager extends BaseManager
      */
     public function isBlacklisted($value, $type)
     {
-        $count = (int) $this->getRepository()->getCountBlacklistQueryBuilder($value, $type)->getQuery()->getSingleScalarResult();
+        $count = (int) $this->getRepository()->getCountBlacklistEntryQueryBuilder($value, $type)->getQuery()->getSingleScalarResult();
 
         return $count > 0;
     }
@@ -29,7 +29,7 @@ class BlacklistEntityManager extends BaseManager
     public function blacklist($value, $type)
     {
         if (!$this->isBlacklisted($value, $type)) {
-            $blacklist = new BlacklistEntity();
+            $blacklist = new BlacklistEntry();
             $blacklist->setType($type);
             $blacklist->setValue($type);
             $this->update($blacklist);
@@ -39,7 +39,7 @@ class BlacklistEntityManager extends BaseManager
     }
 
     /**
-     * @return BlacklistEntityRepository
+     * @return BlacklistEntryRepository
      */
     public function getRepository()
     {

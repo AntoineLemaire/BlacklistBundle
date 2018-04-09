@@ -8,7 +8,7 @@ use Knp\DoctrineBehaviors\Model\Timestampable\Timestampable;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity(repositoryClass="AntoineLemaire\BlacklistBundle\Repository\BlacklistEntityRepository")
+ * @ORM\Entity(repositoryClass="AntoineLemaire\BlacklistBundle\Repository\BlacklistEntryRepository")
  * @ORM\Table("blacklist",
  *    indexes={@ORM\Index(name="blacklist_idx", columns={"value", "type"})},
  *    uniqueConstraints={
@@ -17,7 +17,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *    }
  * )
  */
-class BlacklistEntity
+class BlacklistEntry
 {
     use Timestampable;
 

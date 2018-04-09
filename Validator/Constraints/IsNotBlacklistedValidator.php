@@ -2,7 +2,7 @@
 
 namespace AntoineLemaire\BlacklistBundle\Validator\Constraints;
 
-use AntoineLemaire\BlacklistBundle\Manager\BlacklistEntityManager;
+use AntoineLemaire\BlacklistBundle\Manager\BlacklistEntryManager;
 use AntoineLemaire\BlacklistBundle\Model\BlacklistType;
 use Symfony\Component\Form\Exception\UnexpectedTypeException;
 use Symfony\Component\Validator\Constraint;
@@ -14,16 +14,16 @@ use Symfony\Component\Validator\ConstraintValidator;
 class IsNotBlacklistedValidator extends ConstraintValidator
 {
     /**
-     * @var BlacklistEntityManager
+     * @var BlacklistEntryManager
      */
     protected $blacklistManager;
 
     /**
      * IsNotBlacklistedValidator constructor.
      *
-     * @param BlacklistEntityManager $blacklistManager
+     * @param BlacklistEntryManager $blacklistManager
      */
-    public function __construct(BlacklistEntityManager $blacklistManager)
+    public function __construct(BlacklistEntryManager $blacklistManager)
     {
         $this->blacklistManager = $blacklistManager;
     }
